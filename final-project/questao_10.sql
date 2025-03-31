@@ -26,7 +26,7 @@ BEGIN;
 SET LOCAL transaction_timestamp = '2023-01-01 10:00:01';
 
 -- Atualiza primeiro
-UPDATE produtos 
+UPDATE transacoes
 SET conta_origem = 2, conta_destino = 1, valor= 100,
     data_transacao = transaction_timestamp()
 WHERE id = 1 AND data_transacao <= '2023-01-01 10:00:01';
@@ -37,8 +37,8 @@ COMMIT;
 
 --Regra de Leitura:
 --    Cada transação vê apenas dados commitados antes de seu timestamp
--- SELECT * FROM produtos
- -- WHERE ts_versao <= transaction_timestamp();
+-- SELECT * FROM contads
+ -- WHERE data_transacao <= transaction_timestamp();
 --Regra de Escrita:
 
  --   Atualizações só são permitidas se nenhuma versão mais nova existir

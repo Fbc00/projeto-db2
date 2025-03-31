@@ -9,7 +9,6 @@ COMMIT;
 
 
 
--- deadlock
 BEGIN;
 -- Bloqueia a conta 1 para atualização
 UPDATE contas SET saldo = saldo - 100 WHERE id = 1;

@@ -1,10 +1,10 @@
 BEGIN;
--- Lê a versão atual do produto (cria snapshot)
+-- Lê a versão atual do contas (cria snapshot)
 SELECT * FROM contas WHERE id = 1;
 -- Resultado: 
 SELECT pg_sleep(3);
 -- Atualiza o estoque
-UPDATE produtos SET estoque = saldo - 1 WHERE id = 1;
+UPDATE contas SET saldo = saldo - 1 WHERE id = 1;
 COMMIT; -- ao executar o commit  uma nova versão é criada
 BEGIN;
 -- Esta transação vê o SNAPSHOT no momento de seu início
