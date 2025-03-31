@@ -1,0 +1,13 @@
+services:
+  postgresdb2:
+    image: postgis/postgis:14-3.2-alpine
+    volumes:
+      - data_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: db_2
+      POSTGRES_USER: db_2
+      POSTGRES_PASSWORD: db_2
+    ports:
+      - 5432:5432
+volumes:
+  data_db:

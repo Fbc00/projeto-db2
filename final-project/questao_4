@@ -1,0 +1,9 @@
+T1: R(A) → T2: W(A) (T1 lê A antes de T2 escrever → conflito se T2 escrever depois)
+T1: W(A) → T2: R(A) (T1 escreve A antes de T2 ler → conflito)
+T1: R(B) → T2: W(B) (T1 lê B antes de T2 escrever → conflito se T2 escrever depois)
+T1: W(B) → T2: R(B) (T1 escreve B antes de T2 ler → conflito)
+	Logo, 
+T1 → T2 (devido a R(B) antes de W(B))
+T2 → T1 (devido a R(A) antes de W(A))
+	O escalonamento NÃO é serializável, pois o grafo de precedência contém um ciclo.
+
