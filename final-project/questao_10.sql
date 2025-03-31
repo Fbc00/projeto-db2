@@ -32,3 +32,15 @@ SET conta_origem = 2, conta_destino = 1, valor= 100,
 WHERE id = 1 AND data_transacao <= '2023-01-01 10:00:01';
 
 COMMIT;
+
+
+
+--Regra de Leitura:
+--    Cada transação vê apenas dados commitados antes de seu timestamp
+-- SELECT * FROM produtos
+ -- WHERE ts_versao <= transaction_timestamp();
+--Regra de Escrita:
+
+ --   Atualizações só são permitidas se nenhuma versão mais nova existir
+ --UPDATE tabela SET ...
+-- WHERE id = X AND ts_versao <= meu_timestamp;
